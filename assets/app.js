@@ -6,6 +6,9 @@
   var WA = "5585997800029";            // WhatsApp de vendas
   var INSTAGRAM = "https://instagram.com/drvmg";
   var wa = function (msg) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg); };
+  var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  // defesa leve contra clickjacking (GitHub Pages não seta frame-ancestors por header)
+  if (window.self !== window.top) { try { window.top.location = window.self.location; } catch (e) {} }
   var page = document.body.dataset.page || "";
 
   var NAV = [
@@ -64,9 +67,9 @@
     "<p>Corretora de planos de saúde · Belo Horizonte-MG e Fortaleza-CE. Parceira oficial Hapvida NotreDame Intermédica.</p></div>" +
     '<div class="fcol"><h5>Navegação</h5>' + NAV.map(function (n) { return '<a href="' + n.href + '">' + n.label + "</a>"; }).join("") + "</div>" +
     '<div class="fcol"><h5>Contato</h5>' +
-    '<a href="' + wa("Olá! Vim pelo site da DRVMG.") + '" target="_blank" rel="noopener">WhatsApp (85) 99780-0029</a>' +
+    '<a href="' + wa("Olá! Vim pelo site da DRVMG.") + '" target="_blank" rel="noopener noreferrer">WhatsApp (85) 99780-0029</a>' +
     '<a href="#">contato@<span class="ph">domínio a confirmar</span></a>' +
-    '<a href="' + INSTAGRAM + '" target="_blank" rel="noopener">Instagram @drvmg</a></div>' +
+    '<a href="' + INSTAGRAM + '" target="_blank" rel="noopener noreferrer">Instagram @drvmg</a></div>' +
     '<div class="fcol"><h5>Onde estamos</h5>' +
     '<div><b style="color:#fff;font-weight:600">Belo Horizonte — MG</b><br>Rua Espírito Santo, 616 — 11º andar<br>Centro, Belo Horizonte-MG</div>' +
     '<div style="margin-top:13px"><b style="color:#fff;font-weight:600">Matriz — Fortaleza</b><br>Av. Marcos Macedo, 655 — Sala 204<br>Aldeota, Fortaleza-CE</div>' +
@@ -89,7 +92,7 @@
   chat.setAttribute("role", "dialog");
   chat.setAttribute("aria-label", "Atendimento online DRVMG");
   var opt = function (icon, title, href, ext) {
-    return '<a class="chat-opt" href="' + href + '"' + (ext ? ' target="_blank" rel="noopener"' : "") + '>' +
+    return '<a class="chat-opt" href="' + href + '"' + (ext ? ' target="_blank" rel="noopener noreferrer"' : "") + '>' +
       '<span class="ci">' + icon + "</span>" + title + '<span class="arw">' + ICON.arw + "</span></a>";
   };
   chat.innerHTML =
@@ -155,7 +158,7 @@
     var msg = "Olá! Sou " + f.nome.value + " e quero receber a tabela Hapvida (" + f.tipo.value + "). Meu WhatsApp: " + f.whats.value;
     document.getElementById("popFormWrap").style.display = "none";
     document.getElementById("popOk").style.display = "block";
-    window.open(wa(msg), "_blank");
+    window.open(wa(msg), "_blank", "noopener,noreferrer");
     try { localStorage.setItem("drvmg_popup", "1"); } catch (x) {}
   });
 
@@ -169,7 +172,7 @@
   /* ---------------- COMPORTAMENTOS GERAIS ---------------- */
   // botões wa
   document.querySelectorAll("[data-wa]").forEach(function (b) {
-    b.addEventListener("click", function () { window.open(wa(b.dataset.wa || "Olá! Vim pelo site da DRVMG."), "_blank"); });
+    b.addEventListener("click", function () { window.open(wa(b.dataset.wa || "Olá! Vim pelo site da DRVMG."), "_blank", "noopener,noreferrer"); });
   });
   // formulários simples → WhatsApp (candidatura, cotação da página de contato)
   document.querySelectorAll("form[data-waform]").forEach(function (form) {
@@ -184,11 +187,11 @@
         inp.classList.toggle("err", bad); if (bad) ok = false;
       });
       if (!ok) return;
-      var msg = (form.dataset.waform || "Contato pelo site DRVMG") + ":%0A";
+      var msg = (form.dataset.waform || "Contato pelo site DRVMG") + ":\n";
       form.querySelectorAll("[data-label]").forEach(function (inp) {
-        if (inp.value && inp.value.trim()) msg += "• " + inp.dataset.label + ": " + inp.value.trim() + "%0A";
+        if (inp.value && inp.value.trim()) msg += "• " + inp.dataset.label + ": " + inp.value.trim() + "\n";
       });
-      window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(decodeURIComponent(msg)), "_blank");
+      window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(msg), "_blank", "noopener,noreferrer");
       var okBox = form.parentElement.querySelector("[data-ok]");
       if (okBox) { form.style.display = "none"; okBox.style.display = "block"; }
     });
@@ -316,7 +319,7 @@
 
     function fillSummary() {
       var d = collect(), box = root.querySelector("#wzSummary"), html = "";
-      Object.keys(d).forEach(function (k) { html += '<div class="srow"><span>' + k + "</span><span>" + d[k] + "</span></div>"; });
+      Object.keys(d).forEach(function (k) { html += '<div class="srow"><span>' + esc(k) + "</span><span>" + esc(d[k]) + "</span></div>"; });
       box.innerHTML = html;
     }
 
@@ -329,9 +332,9 @@
 
     var sendBtn = root.querySelector("#wzSend");
     if (sendBtn) sendBtn.addEventListener("click", function () {
-      var d = collect(), msg = "Olá! Quero uma cotação de plano de saúde Hapvida:%0A";
-      Object.keys(d).forEach(function (k) { msg += "• " + k + ": " + d[k] + "%0A"; });
-      window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(decodeURIComponent(msg)), "_blank");
+      var d = collect(), msg = "Olá! Quero uma cotação de plano de saúde Hapvida:\n";
+      Object.keys(d).forEach(function (k) { msg += "• " + k + ": " + d[k] + "\n"; });
+      window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(msg), "_blank", "noopener,noreferrer");
       root.querySelector("#wzForm").style.display = "none";
       root.querySelector("#wzDone").style.display = "block";
     });
