@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cotação de plano de saúde Hapvida | DRVMG</title>
+<meta name="description" content="Monte sua cotação Hapvida em menos de 1 minuto — individual, familiar ou empresarial. Sem compromisso, com um consultor certificado da DRVMG." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-page="cotacao" data-nopopup>
+<main>
+  <section class="hero hero-sm">
+    <div class="wrap"><div class="inner">
+      <div class="crumbs rv"><a href="index.html">Início</a><span class="sep">›</span><span>Cotação</span></div>
+      <span class="hpill rv d1" style="margin-top:12px"><span class="dm">◆</span> Grátis e sem compromisso</span>
+      <h1 class="rv d1">Faça sua cotação Hapvida</h1>
+      <p class="lede rv d2">Responda algumas perguntas rápidas e um consultor certificado envia os melhores valores pra você.</p>
+    </div></div>
+  </section>
+
+  <section class="pad">
+    <div class="wrap">
+      <div class="wizard rv" id="quoteWizard">
+        <form id="wzForm" novalidate>
+          <div class="wz-top">
+            <div class="wz-bar"><div class="wz-fill"></div></div>
+            <div class="wz-meta"><span>Etapa <span class="cur">1</span> de 5</span><span>Leva menos de 1 minuto</span></div>
+          </div>
+          <div class="wz-body">
+
+            <div class="wz-step">
+              <h3>Que tipo de plano você procura?</h3>
+              <p class="stx">Escolha uma opção para começarmos.</p>
+              <div class="opt-cards cols-2" data-required>
+                <label class="opt"><input type="radio" name="tipo" value="Individual ou familiar">
+                  <span class="oi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></span>
+                  <div><div class="ot">Individual / Familiar</div><div class="od">Para você e sua família</div></div>
+                  <span class="chkmark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+                </label>
+                <label class="opt"><input type="radio" name="tipo" value="Empresarial">
+                  <span class="oi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V8l6-4 6 4M15 21V11l6 4v6M3 21h18"/></svg></span>
+                  <div><div class="ot">Empresarial</div><div class="od">A partir de 2 vidas / CNPJ</div></div>
+                  <span class="chkmark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+                </label>
+              </div>
+              <div class="errmsg">Selecione uma opção para continuar.</div>
+            </div>
+
+            <div class="wz-step">
+              <h3>Quem vai usar o plano?</h3>
+              <p class="stx">Isso ajuda a calcular o valor mais preciso.</p>
+              <div data-block="pf">
+                <div class="field"><label>Idade de cada pessoa</label><span class="hint">Adicione uma linha por pessoa que entrará no plano.</span></div>
+                <div class="ages" id="ages"></div>
+                <button type="button" class="addage" id="addAge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg> Adicionar pessoa</button>
+                <div class="errmsg" id="agesWarn">Informe pelo menos uma idade.</div>
+              </div>
+              <div data-block="emp" style="display:none">
+                <div class="row-2">
+                  <div class="field"><label for="vidas">Nº de vidas</label><input class="input" id="vidas" type="number" min="2" placeholder="Ex.: 12" required><span class="errmsg">Informe o número de vidas.</span></div>
+                  <div class="field"><label for="cnpj">CNPJ da empresa</label><input class="input" id="cnpj" placeholder="00.000.000/0001-00" required><span class="errmsg">Informe o CNPJ.</span></div>
+                </div>
+                <p class="hint">Planos empresariais têm isenção de carências de 30 a 99 vidas e condições especiais.</p>
+              </div>
+            </div>
+
+            <div class="wz-step">
+              <h3>Suas preferências</h3>
+              <p class="stx">Personalize a cobertura do jeito que você precisa.</p>
+              <div class="field"><label for="cidade">Cidade de atendimento</label>
+                <select class="select" id="cidade" required>
+                  <option value="">Selecione...</option>
+                  <option>Fortaleza</option><option>Aquiraz</option><option>Eusébio</option><option>Caucaia</option><option>Maracanaú</option><option>Maranguape</option>
+                </select><span class="errmsg">Selecione a cidade.</span>
+              </div>
+              <div class="field"><label>Acomodação</label>
+                <div class="opt-cards cols-2" data-required>
+                  <label class="opt"><input type="radio" name="acomodacao" value="Enfermaria"><div><div class="ot">Enfermaria</div><div class="od">Quarto coletivo</div></div><span class="chkmark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span></label>
+                  <label class="opt"><input type="radio" name="acomodacao" value="Apartamento"><div><div class="ot">Apartamento</div><div class="od">Quarto individual</div></div><span class="chkmark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span></label>
+                </div>
+                <div class="errmsg">Escolha a acomodação.</div>
+              </div>
+              <div class="row-2">
+                <div class="field"><label>Coparticipação</label>
+                  <div class="opt-cards cols-2">
+                    <label class="opt"><div><div class="ot">Com</div></div><input type="radio" name="copart" value="Com coparticipação"><span class="chkmark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span></label>
+                    <label class="opt"><div><div class="ot">Sem</div></div><input type="radio" name="copart" value="Sem coparticipação"><span class="chkmark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span></label>
+                  </div>
+                </div>
+                <div class="field"><label>Odontológico</label>
+                  <div class="opt-cards cols-2">
+                    <label class="opt"><div><div class="ot">Sim</div></div><input type="radio" name="odonto" value="Com odontológico"><span class="chkmark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span></label>
+                    <label class="opt"><div><div class="ot">Não</div></div><input type="radio" name="odonto" value="Sem odontológico"><span class="chkmark"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span></label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="wz-step">
+              <h3>Onde te enviamos a cotação?</h3>
+              <p class="stx">Um consultor entra em contato com os valores.</p>
+              <div class="field"><label for="wn">Nome completo</label><input class="input" id="wn" required placeholder="Seu nome"><span class="errmsg">Informe seu nome.</span></div>
+              <div class="row-2">
+                <div class="field"><label for="ww">WhatsApp</label><input class="input" id="ww" required inputmode="tel" placeholder="(85) 90000-0000"><span class="errmsg">Informe um WhatsApp válido.</span></div>
+                <div class="field"><label for="we">E-mail <span class="hint">(opcional)</span></label><input class="input" id="we" type="email" placeholder="voce@email.com"><span class="errmsg">E-mail inválido.</span></div>
+              </div>
+            </div>
+
+            <div class="wz-step">
+              <h3>Confira e envie</h3>
+              <p class="stx">Revise os dados antes de enviar ao consultor.</p>
+              <div class="wz-summary" id="wzSummary"></div>
+              <button type="button" class="btn btn-orange btn-block btn-lg" id="wzSend">Enviar cotação pelo WhatsApp</button>
+              <p style="font-size:12.5px;color:var(--gray-2);margin-top:12px;text-align:center">Você será direcionado ao WhatsApp com seus dados já preenchidos.</p>
+            </div>
+
+          </div>
+          <div class="wz-nav">
+            <button type="button" class="btn btn-ghost" data-back>← Voltar</button>
+            <button type="button" class="btn btn-orange" data-next>Avançar</button>
+          </div>
+        </form>
+
+        <div id="wzDone" class="wz-done" style="display:none">
+          <div class="ok-ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Cotação enviada! 🎉</h3>
+          <p class="stx" style="max-width:40ch;margin:10px auto 0">Continue a conversa no WhatsApp — nosso consultor já está com seus dados e retorna com os valores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad-sm bg-paper">
+    <div class="wrap">
+      <div class="grid-3">
+        <div class="card rv"><div class="pic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2 4 9l8 13 8-13-8-7Z"/></svg></div><h4>Certificação diamante</h4><p>Seis semestres consecutivos como corretora certificação máxima Hapvida.</p></div>
+        <div class="card rv d1"><div class="pic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2Z"/></svg></div><h4>Atendimento no mesmo dia</h4><p>Um consultor de verdade te responde rápido, sem robô e sem enrolação.</p></div>
+        <div class="card rv d2"><div class="pic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 12l2 2 4-4M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4Z"/></svg></div><h4>Sem compromisso</h4><p>Cotar é grátis. Você decide com calma, com todas as informações na mão.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

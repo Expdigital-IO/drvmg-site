@@ -1,0 +1,9 @@
+run = ["npx", "--yes", "serve", ".", "-l", "3000", "--no-clipboard"]
+
+[deployment]
+deploymentTarget = "static"
+publicDir = "."
+
+[[ports]]
+localPort = 3000
+externalPort = 80
