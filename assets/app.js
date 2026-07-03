@@ -61,15 +61,16 @@
   footer.innerHTML =
     '<div class="wrap"><div class="fgrid">' +
     '<div class="fbrand"><span class="mark">drv<span>mg</span></span>' +
-    "<p>Corretora de planos de saúde · Fortaleza-CE. Revendedora oficial Hapvida NotreDame Intermédica.</p></div>" +
+    "<p>Corretora de planos de saúde · Belo Horizonte-MG e Fortaleza-CE. Parceira oficial Hapvida NotreDame Intermédica.</p></div>" +
     '<div class="fcol"><h5>Navegação</h5>' + NAV.map(function (n) { return '<a href="' + n.href + '">' + n.label + "</a>"; }).join("") + "</div>" +
     '<div class="fcol"><h5>Contato</h5>' +
     '<a href="' + wa("Olá! Vim pelo site da DRVMG.") + '" target="_blank" rel="noopener">WhatsApp (85) 99780-0029</a>' +
     '<a href="#">contato@<span class="ph">domínio a confirmar</span></a>' +
     '<a href="' + INSTAGRAM + '" target="_blank" rel="noopener">Instagram @drvmg</a></div>' +
     '<div class="fcol"><h5>Onde estamos</h5>' +
-    '<div><b style="color:#fff;font-weight:600">Matriz</b><br>Av. Marcos Macedo, 655 — Sala 204<br>Aldeota, Fortaleza-CE</div>' +
-    '<div style="margin-top:13px"><b style="color:#fff;font-weight:600">Filial</b><br>Av. Santos Dumont, 2828 — Sala 14<br>Aldeota, Fortaleza-CE</div></div>' +
+    '<div><b style="color:#fff;font-weight:600">Belo Horizonte — MG</b><br>Rua Espírito Santo, 616 — 11º andar<br>Centro, Belo Horizonte-MG</div>' +
+    '<div style="margin-top:13px"><b style="color:#fff;font-weight:600">Matriz — Fortaleza</b><br>Av. Marcos Macedo, 655 — Sala 204<br>Aldeota, Fortaleza-CE</div>' +
+    '<div style="margin-top:13px"><b style="color:#fff;font-weight:600">Filial — Fortaleza</b><br>Av. Santos Dumont, 2828 — Sala 14<br>Aldeota, Fortaleza-CE</div></div>' +
     "</div><div class=\"foot-bottom\"><span>© 2026 DRVMG. Todos os direitos reservados. Grupo Wolkmar.</span>" +
     '<span>Razão social <span class="ph">a confirmar</span> · CNPJ <span class="ph">a confirmar</span></span></div></div>';
   document.body.appendChild(footer);

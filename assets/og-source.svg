@@ -12,7 +12,7 @@
   <polygon points="980,200 1075,315 980,430 885,315" fill="#F5821E" fill-opacity="0.12"/>
   <polygon points="980,250 1035,315 980,380 925,315" fill="#F5821E"/>
   <!-- overline -->
-  <text x="92" y="150" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" letter-spacing="4" fill="#F5AE63">REVENDEDORA OFICIAL · HAPVIDA</text>
+  <text x="92" y="150" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" letter-spacing="4" fill="#F5AE63">PARCEIRA OFICIAL · HAPVIDA</text>
   <!-- wordmark -->
   <text x="88" y="330" font-family="Arial, Helvetica, sans-serif" font-size="150" font-weight="800" letter-spacing="-3"><tspan fill="#ffffff">drv</tspan><tspan fill="#F5821E">mg</tspan></text>
   <!-- tagline -->
