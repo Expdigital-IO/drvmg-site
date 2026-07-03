@@ -154,6 +154,11 @@ section.pad-sm{padding:64px 0}
 .titem .dot{width:13px;height:13px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 5px rgba(245,130,30,.2);position:relative;z-index:1}
 .titem .cv{font-size:16.5px;color:rgba(255,255,255,.9)}
 .carenote{margin-top:22px;font-size:13px;color:rgba(255,255,255,.5)}
+.care-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:32px;align-items:center}
+.care-grid .tline{max-width:none}
+.care-media{display:flex;justify-content:center;align-items:center}
+.care-media img{width:100%;max-width:600px;height:auto;display:block}
+@media(max-width:920px){.care-grid{grid-template-columns:1fr;gap:14px}.care-media img{max-width:440px}}
 
 /* cta band */
 .bandcard{background:linear-gradient(120deg,var(--orange),#ff9d42);border-radius:28px;padding:56px;display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap;position:relative;overflow:hidden}
