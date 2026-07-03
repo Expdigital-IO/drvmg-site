@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="g" cx="28%" cy="0%" r="110%">
+      <stop offset="0%" stop-color="#0B5296"/>
+      <stop offset="55%" stop-color="#0A386B"/>
+      <stop offset="100%" stop-color="#08284C"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <!-- diamante decorativo à direita -->
+  <polygon points="980,120 1140,315 980,510 820,315" fill="none" stroke="#F5821E" stroke-opacity="0.35" stroke-width="3"/>
+  <polygon points="980,200 1075,315 980,430 885,315" fill="#F5821E" fill-opacity="0.12"/>
+  <polygon points="980,250 1035,315 980,380 925,315" fill="#F5821E"/>
+  <!-- overline -->
+  <text x="92" y="150" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" letter-spacing="4" fill="#F5AE63">REVENDEDORA OFICIAL · HAPVIDA</text>
+  <!-- wordmark -->
+  <text x="88" y="330" font-family="Arial, Helvetica, sans-serif" font-size="150" font-weight="800" letter-spacing="-3"><tspan fill="#ffffff">drv</tspan><tspan fill="#F5821E">mg</tspan></text>
+  <!-- tagline -->
+  <text x="92" y="420" font-family="Georgia, 'Times New Roman', serif" font-size="44" fill="#EAF3FC">Especialistas em planos de saúde,</text>
+  <text x="92" y="474" font-family="Georgia, 'Times New Roman', serif" font-size="44" fill="#EAF3FC">doutores em <tspan fill="#F5821E" font-style="italic">Vendas</tspan>.</text>
+  <!-- domain -->
+  <text x="92" y="560" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#9CC4EC">drvmg.com.br</text>
+</svg>
